@@ -1,0 +1,51 @@
+.admin-container {
+    display: flex;
+    height: 80vh; /* גובה המסך המלא */
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 68px;
+    right: 0;
+    height: 100%;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .sidebar ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    margin-right: 270px; /* מרווח לתוכן כדי לא להיכנס בתוך התפריט */
+    padding: 20px;
+    flex-grow: 1;
+  }
+  .login-warning {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ff9800;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,42 @@
+<div class="admin-form-container">
+    <h2>דף מנהל - הוספת משתמש</h2>
+    <form (ngSubmit)="addUser()">
+      <div class="form-group">
+        <label>שם משתמש:</label>
+        <input type="text" [(ngModel)]="newUsername" name="newUsername" required>
+      </div>
+  
+
+      <div class="form-group">
+        <label>תעודת זהות</label>
+        <input type="text" [(ngModel)]="userId" name="userId" required>
+      </div>
+
+
+      <div class="form-group">
+        <label>הוספת תמונות:</label>
+        <input type="file" (change)="onFilesSelected($event)" multiple>
+        <div class="image-preview-container">
+          <div *ngFor="let image of imagesBase64; let i = index" class="image-preview">
+            <img [src]="'data:image/png;base64,' + image" width="50" alt="Image {{ i + 1 }}">
+            <button type="button" (click)="removeImage(i)">הסר</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>בחירת מספר הצבעות אפשריות ברירת המחדל היא 1 (1-10):</label>
+        <div *ngFor="let num of numbers">
+          <input 
+          type="radio" 
+          [(ngModel)]="selectedNumber" 
+          name="voteCount" 
+          [value]="num"
+            [checked]="num === 1"> {{num}}
+        </div>
+      </div>
+  
+      <button [ngClass]="{'disabled':isLoading}" type="submit" class="submit-button"  [disabled]="isLoading">הוסף משתמש</button>
+    </form>
+  </div>
+  

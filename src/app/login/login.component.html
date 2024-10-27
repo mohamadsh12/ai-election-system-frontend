@@ -1,0 +1,18 @@
+<div class="big">
+<button class="open-button" (click)="toggleCamera()" *ngIf="!isCameraOpen">פתח מצלמה</button>
+<img src="assets/login-image.jpg" *ngIf="!isCameraOpen" class="img-hero">
+
+
+<div  *ngIf="isCameraOpen" class="big-container">
+
+<div class="video-container">
+  <video #video width="640" height="480" autoplay [ngClass]="{'overlay':true}"></video>
+
+</div>
+<div *ngIf="result">
+  <p class="text-sucsses"> ברוך הבא</p>
+  <p class="text-sucsses"> {{ result?.user?.name }}</p>
+</div>
+</div>
+
+</div>

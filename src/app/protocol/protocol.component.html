@@ -1,0 +1,50 @@
+<div class="protocol-container">
+  <h2>פרוטוקול</h2>
+  <form (ngSubmit)="addIncident()" class="protocol-form">
+    <div class="form-group">
+      <label>פרטים על מקרים חריגים:</label>
+      <input type="text" [(ngModel)]="newIncidentTitle" name="newIncidentTitle" placeholder="כותרת התיק" required>
+      <input type="text" [(ngModel)]="place" name="place" placeholder="מקום" required>
+      <textarea [(ngModel)]="newIncident" name="newIncident" placeholder="תיאור" required></textarea>
+    </div>
+    <div class="urgent-toggle">
+      <label class="toggle-switch">
+        <input type="checkbox" [(ngModel)]="isUrgent" name="isUrgent">
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-label">דחוף</span>
+    </div>
+    <button type="submit" class="submit-button">הוסף מקרה</button>
+  </form>
+
+</div>
+
+<div class="incident-list">
+  <h3>רשימת מקרים</h3>
+  
+  <div *ngIf="incidents.length === 0" class="no-incidents-message">
+    אין מקרים שמורים.
+  </div>
+
+  <table *ngIf="incidents.length > 0" class="incident-table">
+    <thead>
+      <tr>
+        <th>כותרת</th>
+        <th>תיאור</th>
+        <th>מקום</th>
+        <th>דחוף</th>
+        <th>תאריך</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let incident of incidents">
+        <td>{{incident.title}}</td>
+        <td>{{incident.description}}</td>
+        <td>{{incident.place}}</td>
+        <td>{{incident.isUrgent ? 'כן' : 'לא'}}</td>
+        <td>{{incident.createdAt | date:'dd/MM/yyyy HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

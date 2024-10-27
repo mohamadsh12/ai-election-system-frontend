@@ -1,0 +1,21 @@
+<div *ngIf="isLoading" class="loader-container">
+  <div class="loader"></div>
+  <p>טוען נתונים...</p>
+</div>
+
+<div [ngClass]="{'none':isLoading}">
+  <div *ngIf="isFirstGraph">
+
+
+    <h2>סטטיסטיקות הצבעה</h2>
+    <canvas id="voteChart" width="800" height="400"></canvas>
+  </div>
+<div *ngIf="!isFirstGraph">
+
+  <h2>אחוז ההצבעה לפי כמות האנשים</h2>
+  <div class="total-users-container">
+      <!-- כמות האנשים: {{ totalUsers }} -->
+  </div>  <canvas id="voterChart" width="400" height="400"></canvas>
+
+</div>
+</div>

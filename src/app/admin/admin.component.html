@@ -1,0 +1,25 @@
+<div class="admin-container">
+    <div class="sidebar">
+        <ul>
+            <li *ngFor="let link of navLinks">
+                <a  (click)="selectComponent(link.path)">{{ link.label }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <div >
+            <div *ngIf="selectedComponent !== '/adminlogin' && !isLoggedIn" class="login-warning">
+                אנא התחבר/י כדי לגשת לאזור זה.
+            </div>
+                    <app-add-user *ngIf="selectedComponent === '/add-user'&&isLoggedIn"></app-add-user>
+        <app-protocol *ngIf="selectedComponent === '/protocol'&&isLoggedIn"></app-protocol>
+       </div>
+
+        <app-adminlogin (loginSuccess)="onLoginSuccess()" *ngIf="selectedComponent === '/adminlogin'&&!isLoggedIn"></app-adminlogin>
+        <div *ngIf="selectedComponent === '/adminlogin' && isLoggedIn" class="login-warning">
+            ברוך הבא, אתה מחובר כמנהל.
+        
+        </div>
+          <app-users *ngIf="selectedComponent === '/users'&&isLoggedIn"></app-users>
+    </div>
+</div>

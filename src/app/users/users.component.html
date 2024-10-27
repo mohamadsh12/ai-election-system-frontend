@@ -1,0 +1,22 @@
+
+<div *ngIf="loading" class="loader">
+    טוען נתונים, אנא המתן...
+  </div>
+<table *ngIf="users.length>0">
+    <thead>
+      <tr>
+        <th>מזהה משתמש</th>
+        <th>שם</th>
+        <th>גיל</th>
+        <th>הצביע</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.isUserVotedOnce ? 'כן' : 'לא' }}</td>
+      </tr>
+    </tbody>
+  </table>

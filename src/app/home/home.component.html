@@ -1,0 +1,20 @@
+<!-- src/app/components/home/home.component.html -->
+<div class="timer-container">
+  <div class="timer">
+    <span class="time">{{ timeLeft }}</span>
+    <span class="label">Seconds Left</span>
+  </div>
+</div>
+
+
+<div class="card-container">
+    <div *ngFor="let party of parties" class="card">
+      <img [src]="party.imageUrl" alt="{{party.name}}">
+      <div class="card-content">
+        <h3>{{party.name}}</h3>
+        <p>{{party.description}}</p>
+        <button (click)="selectParty(party.name)">בחירה במפלגה</button>
+      </div>
+    </div>
+  </div>
+  
